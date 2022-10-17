@@ -337,19 +337,19 @@ spec:
     ingressClassName: webapprouting.kubernetes.azure.com
     rules:
     - host: ${host}
-    http:
+	  http:
         paths:
         - backend:
             service:
-            name: ${service}
-            port:
+              name: ${service}
+              port:
                 number: ${port}
-        path: /
-        pathType: Prefix
-    tls:
-    - hosts:
-      - ${host}
-      secretName: keyvault-${service}
+          path: /
+          pathType: Prefix
+	tls:
+	- hosts:
+	  - ${host}
+	  secretName: keyvault-${service}
     `;			
 		}
 		ws.createFile(uri);
